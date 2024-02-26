@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import Player from "./components/Player.jsx";
-import GameBoard from "./components/Gameboard.jsx";
-import Log from "./components/log.jsx";
+import GameBoard from "./components/GameBoard.jsx";
+import Log from "./components/Log.jsx";
 import GameOver from "./components/GameOver.jsx";
 import { WINNING_COMBINATIONS } from "./winning-combination.js";
 
@@ -37,6 +37,8 @@ function deriveGameBoard(gameTurns) {
 
     gameBoard[row][col] = player;
   }
+
+  return gameBoard;
 }
 
 function deriveWinner(gameBoard, players) {
@@ -63,7 +65,7 @@ function deriveWinner(gameBoard, players) {
 }
 
 function App() {
-  const [players, setPlayers] = useState({ PLAYERS });
+  const [players, setPlayers] = useState(PLAYERS);
   const [gameTurns, setGameTurns] = useState([]);
 
   const gameBoard = deriveGameBoard(gameTurns);
